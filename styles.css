@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    scroll-behavior: smooth; /* Add smooth scrolling for the entire page */
 }
 
 h1, h2 {
@@ -39,32 +40,44 @@ p {
 
 .intro {
     display: flex;
-    justify-content: center; /* Centers the image horizontally */
-    align-items: top; /* Centers the image vertically */
-    overflow: hidden; /* Prevents any potential overflow */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100vh; /* Ensures it takes the full screen */
+    width: 100vw;
 }
 
 .intro img {
-    width: 75%; /* Makes the image x% of the width of the container */
-    height: auto; /* Keeps the aspect ratio intact */
-    display: block; /* Ensures the image is treated as a block element */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills the area while cropping */
+    object-position: center center; /* Keeps focus on the center */
 }
 
+/* Styling for the second image */
 .pic {
     display: flex;
-    justify-content: center; /* Centers the image horizontally */
-    align-items: center; /* Centers the image vertically */
-    height: 100vh; /* Ensures the container takes full viewport height */
-    overflow: hidden; /* Prevents any potential overflow */
-    background: #495e35; /* Your desired background color */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: #495e35;
 }
 
 .pic img {
-    width: 60%; /* Makes the image 60% of the width of the container */
-    height: auto; /* Keeps the aspect ratio intact */
-    display: block; /* Ensures the image is treated as a block element */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills the area while cropping */
+    object-position: center center; /* Keeps focus in the center */
 }
 
+/* Responsive adjustments for mobile screens */
+@media (max-width: 768px) {
+    .intro, .pic {
+        height: 80vh; /* Adjust height for smaller screens */
+    }
+}
 
 .scrollytelling {
     display: flex;
@@ -83,6 +96,13 @@ p {
     text-align: center;
     font-size: 1.5rem;
     background: #f1f0e2;
+    opacity: 0; /* Initially hide the sections */
+    transition: opacity 1s ease-out, transform 0.5s ease-out; /* Smooth transitions for opacity and movement */
+}
+
+.panel.visible {
+    opacity: 1; /* Make the section visible */
+    transform: translateY(0); /* Move the section into place */
 }
 
 #wedding-1 { background: #f9f9f9; }
