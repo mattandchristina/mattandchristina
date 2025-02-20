@@ -6,33 +6,105 @@
     <title>Our Wedding Invitation</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Add smooth transitions to elements when they become visible */
+        .panel {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .panel.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Basic layout for password protection */
+        #password-protected {
+            text-align: center;
+            margin-top: 20%;
+        }
+        #content {
+            display: none;
+        }
+        /* Ensure the iframe and images scale appropriately */
+        iframe {
+            width: 80%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+        }
+    </style>
+    <script>
+        const password = 'abc'; // Change to your desired password
+
+        function checkPassword() {
+            let enteredPassword = prompt('Please enter the password to access the site:');
+            if (enteredPassword === password) {
+                document.getElementById('content').style.display = 'block';
+                document.getElementById('password-protected').style.display = 'none';
+                window.scrollTo(0, 0); // Scroll to the top of the page after access
+            } else {
+                alert('Incorrect password');
+                window.location.reload();  // Reload to prompt again
+            }
+        }
+
+        // Smooth scroll logic for panels
+        document.addEventListener('DOMContentLoaded', function() {
+            const panels = document.querySelectorAll('.panel');
+
+            function onScroll() {
+                panels.forEach(panel => {
+                    if (panel.getBoundingClientRect().top < window.innerHeight) {
+                        panel.classList.add('visible');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', onScroll);
+            onScroll(); // Run on page load to check if any panel should already be visible
+        });
+    </script>
 </head>
-<body>
-    <div class="hero">
-        <h1>You're Invited to Our Wedding! 💍</h1>
-        <p>We can't wait to celebrate with you!</p>
+<body onload="checkPassword()">
+    <!-- Password Protection Section -->
+    <div id="password-protected">
+        <h2>Wedding Invitation</h2>
+        <p>Please enter the password to access the invitation.</p>
     </div>
 
-    <section class="scrollytelling">
-        <div class="panel" id="wedding-1">
-            <h2>Wedding #1</h2>
-            <p><strong>Date:</strong> XXX</p>
-            <p><strong>Location:</strong> XXX</p>
+    <!-- Actual Content (Hidden initially) -->
+    <div id="content">
+        <div class="intro">
+            <img src="intro.png" alt="intro">
         </div>
-        <div class="panel" id="wedding-2">
-            <h2>Wedding #2</h2>
-            <p><strong>Date:</strong> YYY</p>
-            <p><strong>Location:</strong> YYY</p>
+        <div class="pic">
+            <img src="pic.jpg" alt="pic">
         </div>
-        <div class="panel rsvp-section">
-            <h2>RSVP Now</h2>
-            <iframe src="https://tally.so/r/3yd0r0"></iframe>
-        </div>
-    </section>
-
-    <footer>
-        <p>With love, [Your Names] ❤️</p>
-    </footer>
+        <section class="scrollytelling">
+            <div class="panel" id="wedding-1">
+                <h2>Saturday, September 27, 2025</h2>
+                <h2>At two o'clock in the afternoon</h2>
+                <p><strong><a href="https://maps.app.goo.gl/J7v3Cj3Dpjs2PYrv7" target="_blank">St. Kateri Tekakwitha Parish</a></strong></p>
+                <p>1803 Union St, Niskayuna, NY 12309</p>
+                <p>reception to follow</p>
+            </div>
+            <div class="panel" id="wedding-2">
+                <h2>Saturday, February 7, 2026</h2>
+                <h2>At five o'clock in the afternoon</h2>
+                <p><strong><a href="https://maps.app.goo.gl/qn7RgKpfRNAQZ9qY9" target="_blank">CHALET V</a></strong></p>
+                <p>104, Taiwan, Taipei City, Zhongshan District, ZhiFu Rd, 8號入口於戶外1樓</p>
+                <p>reception to follow</p>
+            </div>
+            <div class="panel rsvp-section">
+                <h2>Kindly Reply</h2>
+                <p>BY SEPTEMBER 1ST</p>
+                <iframe src="https://tally.so/r/3yd0r0"></iframe>
+            </div>
+        </section>
+        <footer>
+            <p>With love, [Your Names] ❤️</p>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
