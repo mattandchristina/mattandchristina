@@ -5,7 +5,6 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    scroll-behavior: smooth; /* Add smooth scrolling for the entire page */
 }
 
 h1, h2 {
@@ -66,6 +65,7 @@ p {
     display: block; /* Ensures the image is treated as a block element */
 }
 
+
 .scrollytelling {
     display: flex;
     flex-direction: column;
@@ -83,13 +83,6 @@ p {
     text-align: center;
     font-size: 1.5rem;
     background: #f1f0e2;
-    opacity: 0; /* Initially hide the sections */
-    transition: opacity 1s ease-out, transform 0.5s ease-out; /* Smooth transitions for opacity and movement */
-}
-
-.panel.visible {
-    opacity: 1; /* Make the section visible */
-    transform: translateY(0); /* Move the section into place */
 }
 
 #wedding-1 { background: #f9f9f9; }
