@@ -13,3 +13,17 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+// Detecting scroll and triggering the visibility transition
+window.addEventListener('scroll', function () {
+    let panels = document.querySelectorAll('.panel');
+    let scrollPosition = window.scrollY + window.innerHeight;
+
+    panels.forEach(function (panel) {
+        if (scrollPosition >= panel.offsetTop) {
+            panel.classList.add('visible');
+        } else {
+            panel.classList.remove('visible');
+        }
+    });
+});
