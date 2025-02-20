@@ -9,8 +9,8 @@ body {
 }
 
 h1, h2 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
+    font-family: 'Cedarville Cursive', cursive;
+    font-weight: 400; /* Use 400 since Cedarville Cursive does not support bold */
 }
 
 h1 {
