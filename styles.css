@@ -1,5 +1,7 @@
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Italiana', serif;
+    font-weight: 400;
+    font-style: normal;
     background-color: #f9f9f9;
     color: #495e35;
     margin: 0;
@@ -9,8 +11,10 @@ body {
 }
 
 h1, h2 {
-    font-family: 'Cedarville Cursive', cursive;
-    font-weight: 400; /* Use 400 since Cedarville Cursive does not support bold */
+    font-family: 'Homemade Apple', serif;
+    font-weight: 400; 
+    font-style: normal;
+
 }
 
 h1 {
@@ -25,6 +29,9 @@ p {
     font-size: 1.2rem;
     font-weight: 300;
     line-height: 1.6;
+    font-family: "Cactus Classical Serif", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .hero {
@@ -72,9 +79,33 @@ p {
     object-position: center center; /* Keeps focus in the center */
 }
 
+.intro img {
+    width: 75%;  /* Default size for larger screens */
+    height: auto;
+    display: block;
+}
+
+/* Adjust for smaller screens */
+@media screen and (max-width: 768px) {
+    .intro img {
+        width: 100%; /* Ensure image takes up full width */
+        height: 80vh; /* Adjust height for better fit on mobile */
+        object-fit: cover; /* Ensures image covers the area without distorting */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .intro img {
+        width: 100%; /* Full width for very small screens */
+        height: 80vh; /* Maintain 80% of viewport height */
+        object-fit: cover; /* Keep the aspect ratio while filling the space */
+    }
+}
+
+
 /* Responsive adjustments for mobile screens */
 @media (max-width: 768px) {
-    .intro, .pic {
+    .pic {
         height: 80vh; /* Adjust height for smaller screens */
     }
 }
@@ -109,6 +140,24 @@ p {
 #wedding-2 { background: #E4C7B8; }
 .rsvp-section { background: #f9f9f9; }
 
+#wedding-1, #wedding-2 {
+    white-space: nowrap; /* Prevents text from wrapping */
+    text-align: center;
+}
+
+/* Adjust for smaller screens */
+@media screen and (max-width: 768px) {
+    #wedding-1, #wedding-2 {
+        font-size: 1.2rem; /* Reduce font size on tablets */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #wedding-1, #wedding-2 {
+        font-size: 1rem; /* Further reduce font size on small phones */
+    }
+}
+
 iframe {
     width: 80%;
     height: 600px;
@@ -121,7 +170,7 @@ footer {
     padding: 20px;
     font-size: 14px;
     font-weight: 400;
-    color: #777;
+    color: #495e35;
 }
 
 @media (max-width: 768px) {
