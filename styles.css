@@ -1,20 +1,25 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Italiana', serif;
     font-weight: 400;
     font-style: normal;
     background-color: #f9f9f9;
     color: #495e35;
-    margin: 0;
-    padding: 0;
     overflow-x: hidden;
-    scroll-behavior: smooth; /* Add smooth scrolling for the entire page */
+    scroll-behavior: smooth;
 }
 
+/* Typography */
 h1, h2 {
     font-family: 'Homemade Apple', serif;
-    font-weight: 400; 
+    font-weight: 400;
     font-style: normal;
-
 }
 
 h1 {
@@ -30,38 +35,66 @@ p {
     font-weight: 300;
     line-height: 1.6;
     font-family: "Cactus Classical Serif", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    background: #f9f9f9;
-    font-size: 2rem;
 }
 
 .intro {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background: url('intro.png') no-repeat center center/cover;
     display: flex;
     justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    height: 100vh; /* Ensures it takes the full screen */
-    width: 100vw;
+    align-items: center; /* Center content vertically */
+    padding: 0 5%; /* Horizontal padding only for the intro section */
+    box-sizing: border-box;
 }
 
-.intro img {
+.overlay-container {
+    position: relative;
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures image fills the area while cropping */
-    object-position: center center; /* Keeps focus on the center */
+    max-width: 2000px; /* Adjust max-width to be a bit narrower */
+    padding: 40px 20px; /* Add padding on top, bottom, and sides */
+    box-sizing: border-box;
+    text-align: left;
+    overflow: hidden; /* Prevent text overflow */
+    height: auto; /* Adjust height based on content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* Styling for the second image */
+.overlay {
+    color: #495e35; /* Font color */
+    font-size: 1.5rem; /* Default font size */
+    line-height: 1.6; /* Line height for better readability */
+    margin: 0;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .overlay {
+        font-size: 1.3rem; /* Slightly smaller font size for tablets */
+    }
+
+    .overlay-container {
+        padding: 30px 15px; /* Adjust padding for smaller screens */
+        max-width: 90%; /* Make container width responsive */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .overlay {
+        font-size: 1.2rem; /* Further reduce font size for mobile */
+    }
+
+    .overlay-container {
+        padding: 20px 10px; /* Adjust padding for mobile screens */
+        max-width: 90%; /* Keep container width responsive */
+    }
+}
+
+
+/* Pic Section */
 .pic {
     display: flex;
     justify-content: center;
@@ -75,41 +108,122 @@ p {
 .pic img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures image fills the area while cropping */
-    object-position: center center; /* Keeps focus in the center */
+    object-fit: cover;
+    object-position: center center;
 }
 
-.intro img {
-    width: 75%;  /* Default size for larger screens */
-    height: auto;
-    display: block;
+/* Wedding and RSVP Sections */
+#wedding-1, #wedding-2, .rsvp-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    font-family: "Cactus Classical Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 30px;
 }
 
-/* Adjust for smaller screens */
+#wedding-1 {
+    background: #f9f9f9;
+    font-size: 1.2rem;
+    white-space: nowrap;
+}
+
+#wedding-2 {
+    background: #E4C7B8;
+    font-size: 1.2rem;
+    white-space: nowrap;
+}
+
+.rsvp-section {
+    background: #f9f9f9;
+    font-size: 1.2rem;
+    color: #495e35;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #495e35;
+}
+
+/* Responsive Adjustments */
+
+/* Tablet Screens */
 @media screen and (max-width: 768px) {
-    .intro img {
-        width: 100%; /* Ensure image takes up full width */
-        height: 80vh; /* Adjust height for better fit on mobile */
-        object-fit: cover; /* Ensures image covers the area without distorting */
+    body {
+        font-size: 1rem;
     }
-}
-
-@media screen and (max-width: 480px) {
-    .intro img {
-        width: 100%; /* Full width for very small screens */
-        height: 80vh; /* Maintain 80% of viewport height */
-        object-fit: cover; /* Keep the aspect ratio while filling the space */
+    
+    h1 {
+        font-size: 2.5rem;
     }
-}
 
+    h2 {
+        font-size: 1.8rem;
+    }
 
-/* Responsive adjustments for mobile screens */
-@media (max-width: 768px) {
+    .intro img {
+        width: 100%;
+        height: 80vh;
+        object-fit: cover;
+    }
+
     .pic {
-        height: 80vh; /* Adjust height for smaller screens */
+        height: 80vh;
+    }
+
+    #wedding-1, #wedding-2, .rsvp-section {
+        font-size: 1.2rem;
+    }
+    
+    iframe {
+        width: 100%;
     }
 }
 
+/* Mobile Screens */
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .intro img {
+        width: 100%;
+        height: 80vh;
+        object-fit: cover;
+    }
+
+    .pic {
+        height: 80vh;
+    }
+
+    #wedding-1, #wedding-2, .rsvp-section {
+        font-size: 1rem;
+    }
+    
+    iframe {
+        width: 100%;
+        height: 500px;
+    }
+}
+
+/* Scrolltelling */
 .scrollytelling {
     display: flex;
     flex-direction: column;
@@ -126,55 +240,25 @@ p {
     align-items: center;
     text-align: center;
     font-size: 1.5rem;
-    background: #f1f0e2;
-    opacity: 0; /* Initially hide the sections */
-    transition: opacity 1s ease-out, transform 0.5s ease-out; /* Smooth transitions for opacity and movement */
+    background: #f9f9f9;
+    opacity: 0;
+    transition: opacity 1s ease-out, transform 0.5s ease-out;
 }
 
 .panel.visible {
-    opacity: 1; /* Make the section visible */
-    transform: translateY(0); /* Move the section into place */
+    opacity: 1;
+    transform: translateY(0);
 }
 
-#wedding-1 { background: #f9f9f9; }
-#wedding-2 { background: #E4C7B8; }
-.rsvp-section { background: #f9f9f9; }
-
-#wedding-1, #wedding-2 {
-    white-space: nowrap; /* Prevents text from wrapping */
-    text-align: center;
-}
-
-/* Adjust for smaller screens */
-@media screen and (max-width: 768px) {
-    #wedding-1, #wedding-2 {
-        font-size: 1.2rem; /* Reduce font size on tablets */
-    }
-}
-
-@media screen and (max-width: 480px) {
-    #wedding-1, #wedding-2 {
-        font-size: 1rem; /* Further reduce font size on small phones */
-    }
-}
-
-iframe {
-    width: 80%;
-    height: 600px;
-    border: none;
-    border-radius: 8px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
-    font-weight: 400;
-    color: #495e35;
-}
-
+/* Responsive Adjustments for Panels */
 @media (max-width: 768px) {
-    iframe {
-        width: 100%;
+    .panel {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .panel {
+        font-size: 1rem;
     }
 }
