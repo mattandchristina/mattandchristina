@@ -22,19 +22,19 @@ h1, h2, h3 {
     font-style: normal;
 }
 
-h1 {
-    font-size: 3rem;
-}
-
-h2 {
+/* Common styles for h2 and h3 */
+h2, h3 {
     font-size: 2.2rem;
+    text-align: left; /* Default alignment for h2 */
+    margin: 0;
 }
 
+/* Right-align h3 */
 h3 {
-    font-size: 2.2rem;
-    text-align: right; /* Align text to the left */
+    text-align: right;
 }
 
+/* Paragraph */
 p {
     font-size: 1.2rem;
     font-weight: 300;
@@ -56,21 +56,66 @@ p {
     box-sizing: border-box;
 }
 
-.intro img {
+.overlay-container {
+    position: relative;
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures image fills the container while keeping aspect ratio */
-    object-position: center center; /* Centers the image */
+    max-width: 2000px; /* Adjust max-width to be a bit narrower */
+    padding: 40px 20px; /* Add padding on top, bottom, and sides */
+    box-sizing: border-box;
+    text-align: left;
+    overflow: hidden; /* Prevent text overflow */
+    height: auto; /* Adjust height based on content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* Mobile version: Ensuring the image is cropped and centered */
-@media screen and (max-width: 480px) {
-    .intro img {
-        width: 100%; /* Ensure full width */
-        height: 60vh; /* Set a specific height to prevent stretching */
-        object-fit: cover; /* Crops the image while maintaining its aspect ratio */
-        object-position: center center; /* Keep the focus on the center */
+.overlay {
+    color: #495e35; /* Font color */
+    font-size: 0.6rem; /* Default font size */
+    line-height: 1.5; /* Line height for better readability */
+    margin: 0;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .overlay {
+        font-size: 1.3rem; /* Slightly smaller font size for tablets */
     }
+
+    .overlay-container {
+        padding: 30px 15px; /* Adjust padding for smaller screens */
+        max-width: 90%; /* Make container width responsive */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .overlay {
+        font-size: 1.2rem; /* Further reduce font size for mobile */
+    }
+
+    .overlay-container {
+        padding: 20px 10px; /* Adjust padding for mobile screens */
+        max-width: 90%; /* Keep container width responsive */
+    }
+}
+
+/* Pic Section */
+.pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: #495e35;
+}
+
+.pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
 }
 
 /* Wedding and RSVP Sections */
@@ -102,25 +147,6 @@ p {
     color: #495e35;
     padding: 30px;
     margin-top: 20px;
-}
-
-
-/* Pic Section */
-.pic {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    background: #495e35;
-}
-
-.pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
 }
 
 /* Footer */
@@ -222,10 +248,15 @@ footer {
         font-size: 1.8rem;
     }
 
+    h3 {
+        font-size: 1.8rem; /* Keep h3 font size same as h2 */
+    }
+
     .intro img {
         width: 100%;
         height: 80vh;
         object-fit: cover;
+        object-position: center center;
     }
 
     .pic {
@@ -255,15 +286,19 @@ footer {
         font-size: 1.5rem;
     }
 
+    h3 {
+        font-size: 1.5rem; /* Keep h3 font size same as h2 */
+    }
+
     .intro img {
         width: 100%;
-        height: 60vh;
+        height: 80vh;
         object-fit: cover;
-        object-position: center center;
+        object-position: center center; /* Ensures the image stays centered */
     }
 
     .pic {
-        height: 60vh; /* Adjust height for smaller screens */
+        height: 80vh;
     }
 
     #wedding-1, #wedding-2, .rsvp-section {
