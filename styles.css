@@ -16,7 +16,7 @@ body {
 }
 
 /* Typography */
-h1, h2 {
+h1, h2, h3 {
     font-family: 'Homemade Apple', serif;
     font-weight: 400;
     font-style: normal;
@@ -30,6 +30,12 @@ h2 {
     font-size: 2.2rem;
 }
 
+h3 {
+    font-size: 2.2rem;
+    text-align: right; /* Align text to the left */
+
+}
+
 p {
     font-size: 1.2rem;
     font-weight: 300;
@@ -37,11 +43,13 @@ p {
     font-family: "Cactus Classical Serif", serif;
 }
 
+/* Intro Section */
 .intro {
     position: relative;
     width: 100%;
     height: 100vh; /* Full viewport height */
     background: url('intro.png') no-repeat center center/cover;
+    background-attachment: fixed; /* Keeps the background fixed */
     display: flex;
     justify-content: center;
     align-items: center; /* Center content vertically */
@@ -65,8 +73,8 @@ p {
 
 .overlay {
     color: #495e35; /* Font color */
-    font-size: 1.5rem; /* Default font size */
-    line-height: 1.6; /* Line height for better readability */
+    font-size: 0.6rem; /* Default font size */
+    line-height: 1.5; /* Line height for better readability */
     margin: 0;
 }
 
@@ -92,7 +100,6 @@ p {
         max-width: 90%; /* Keep container width responsive */
     }
 }
-
 
 /* Pic Section */
 .pic {
@@ -152,6 +159,80 @@ footer {
     font-size: 14px;
     font-weight: 400;
     color: #495e35;
+}
+
+/* Scrolltelling */
+.scrollytelling {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+    width: 100%;
+    background: url('intro.png') no-repeat center center/cover;
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    background-size: cover;
+    height: auto;
+    position: relative;
+    padding: 0 15%; /* Increased padding on both sides */
+}
+
+/* Each section within scrollytelling */
+.panel {
+    height: 100vh; /* Full screen height for each section */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left; /* Align text to the left */
+    padding: 20px; /* Add some padding inside the panel */
+    font-size: 1.5rem;
+    color: #495e35;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Adding a visible class for animation */
+.panel.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Adjustments for Panels */
+@media (max-width: 768px) {
+    .panel {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .panel {
+        font-size: 1rem;
+    }
+}
+
+/* Scroll animations */
+.panel.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Scrolling effect for text */
+.scrollytelling {
+    position: relative;
+    overflow: hidden;
+}
+
+.scrollytelling .panel {
+    position: relative;
+    transform: translateY(30px); /* Start slightly lower */
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+/* JavaScript-triggered effect to make the text scroll in */
+.scrollytelling .panel.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Responsive Adjustments */
@@ -220,45 +301,5 @@ footer {
     iframe {
         width: 100%;
         height: 500px;
-    }
-}
-
-/* Scrolltelling */
-.scrollytelling {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.panel {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 1.5rem;
-    background: #f9f9f9;
-    opacity: 0;
-    transition: opacity 1s ease-out, transform 0.5s ease-out;
-}
-
-.panel.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Responsive Adjustments for Panels */
-@media (max-width: 768px) {
-    .panel {
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .panel {
-        font-size: 1rem;
     }
 }
