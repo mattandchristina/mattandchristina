@@ -32,7 +32,7 @@ h2 {
 
 h3 {
     font-size: 2.2rem;
-    text-align: left; /* Align text to the left */
+    text-align: right; /* Align text to the left */
 }
 
 p {
@@ -47,56 +47,78 @@ p {
     position: relative;
     width: 100%;
     height: 100vh; /* Full viewport height */
-    background: url('intro.png') no-repeat center center/cover;
-    background-attachment: fixed; /* Keeps the background fixed */
+    background: url('intro.png') no-repeat center center;
+    background-size: cover; /* Ensure the image doesn't stretch */
+    background-position: center center; /* Center the image */
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
-    align-items: center; /* Center content vertically */
-    padding: 0 5%; /* Horizontal padding only for the intro section */
+    align-items: center;
+    padding: 0 5%;
     box-sizing: border-box;
+    background-size: contain; /* Ensure the image stays centered and not stretched */
+    background-repeat: no-repeat; /* Prevent repeating image */
 }
 
+/* Overlay Container */
 .overlay-container {
     position: relative;
     width: 100%;
-    max-width: 2000px; /* Adjust max-width to be a bit narrower */
-    padding: 40px 20px; /* Add padding on top, bottom, and sides */
+    max-width: 2000px;
+    padding: 40px 20px;
     box-sizing: border-box;
     text-align: left;
-    overflow: hidden; /* Prevent text overflow */
-    height: auto; /* Adjust height based on content */
+    overflow: hidden;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .overlay {
-    color: #495e35; /* Font color */
-    font-size: 0.6rem; /* Default font size */
-    line-height: 1.5; /* Line height for better readability */
+    color: #495e35;
+    font-size: 0.6rem;
+    line-height: 1.5;
     margin: 0;
 }
 
 /* Responsive adjustments for smaller screens */
 @media screen and (max-width: 768px) {
     .overlay {
-        font-size: 1.3rem; /* Slightly smaller font size for tablets */
+        font-size: 0.5rem;
     }
 
     .overlay-container {
-        padding: 30px 15px; /* Adjust padding for smaller screens */
-        max-width: 90%; /* Make container width responsive */
+        padding: 30px 15px;
+        max-width: 90%;
+    }
+
+    /* Reduce font size in scrollytelling on smaller screens */
+    .scrollytelling .panel {
+        font-size: 0.5rem;
     }
 }
 
 @media screen and (max-width: 480px) {
     .overlay {
-        font-size: 1.2rem; /* Further reduce font size for mobile */
+        font-size: 0.2rem;
     }
 
     .overlay-container {
-        padding: 20px 10px; /* Adjust padding for mobile screens */
-        max-width: 90%; /* Keep container width responsive */
+        padding: 20px 10px;
+        max-width: 90%;
+    }
+
+    /* Further reduce font size in scrollytelling on mobile */
+    .scrollytelling .panel {
+        font-size: 0.2rem;
+    }
+
+    /* Ensure intro image does not blow out on smaller screens */
+    .intro {
+        background-size: contain;
+        background-position: center;
+        background-attachment: scroll; /* Fix background attachment on mobile */
     }
 }
 
@@ -123,33 +145,32 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px; /* Padding on all sides */
+    padding: 20px;
     text-align: center;
     font-family: "Cactus Classical Serif", serif;
     font-weight: 400;
     font-style: normal;
     margin-bottom: 30px;
-    word-wrap: break-word; /* Ensure words break correctly */
+    word-wrap: break-word;
 }
 
 #wedding-1 {
     background: #f9f9f9;
-    font-size: 0.5rem; /* Smaller font size */
+    font-size: 1rem;
 }
 
 #wedding-2 {
     background: #E4C7B8;
-    font-size: 0.5rem; /* Smaller font size */
+    font-size: 1rem;
 }
 
 .rsvp-section {
     background: #f9f9f9;
-    font-size: 0.5rem; /* Smaller font size */
+    font-size: 1rem;
     color: #495e35;
     padding: 30px;
     margin-top: 20px;
 }
-
 
 /* Footer */
 footer {
@@ -164,30 +185,30 @@ footer {
 .scrollytelling {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align text to the left */
+    align-items: flex-start;
     width: 100%;
     background: url('intro.png') no-repeat center center/cover;
-    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    background-attachment: fixed;
     background-size: cover;
     height: auto;
     position: relative;
-    padding: 0 15%; /* Increased padding on both sides */
+    padding: 0 15%;
 }
 
 /* Each section within scrollytelling */
 .panel {
-    height: 100vh; /* Full screen height for each section */
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: left; /* Align text to the left */
-    padding: 20px; /* Add some padding inside the panel */
+    text-align: left;
+    padding: 20px;
     font-size: 1.5rem;
     color: #495e35;
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Faster transition */
 }
 
 /* Adding a visible class for animation */
@@ -196,26 +217,7 @@ footer {
     transform: translateY(0);
 }
 
-/* Responsive Adjustments for Panels */
-@media (max-width: 768px) {
-    .panel {
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .panel {
-        font-size: 1rem;
-    }
-}
-
 /* Scroll animations */
-.panel.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Scrolling effect for text */
 .scrollytelling {
     position: relative;
     overflow: hidden;
@@ -223,9 +225,9 @@ footer {
 
 .scrollytelling .panel {
     position: relative;
-    transform: translateY(30px); /* Start slightly lower */
+    transform: translateY(30px);
     opacity: 0;
-    transition: transform 1s ease-out, opacity 1s ease-out;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Faster transition */
 }
 
 /* JavaScript-triggered effect to make the text scroll in */
@@ -234,80 +236,26 @@ footer {
     transform: translateY(0);
 }
 
-/* Responsive Adjustments */
-
-/* Tablet Screens */
+/* Mobile Fixes */
 @media screen and (max-width: 768px) {
-    body {
-        font-size: 1rem;
+    .scrollytelling {
+        background-attachment: scroll; /* Fix background attachment on mobile */
+        background-size: contain; /* Ensure the image doesn't stretch */
     }
     
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    .intro img {
-        width: 100%;
-        height: 80vh;
-        object-fit: cover;
-    }
-
-    .pic {
-        height: 80vh;
-    }
-
-    #wedding-1, #wedding-2, .rsvp-section {
-        font-size: 1.2rem;
-    }
-    
-    iframe {
-        width: 100%;
+    .scrollytelling .panel {
+        font-size: 1.1rem;
     }
 }
 
-/* Mobile Screens */
 @media screen and (max-width: 480px) {
-    body {
-        font-size: 0.9rem;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    .intro img {
-        width: 100%;
-        height: 80vh;
-        object-fit: cover;
-    }
-
-    .pic {
-        height: 80vh;
-    }
-
-    #wedding-1, #wedding-2, .rsvp-section {
-        font-size: 1rem;
+    .scrollytelling {
+        background-size: contain; /* Prevent image from zooming or stretching */
+        background-position: center center;
+        background-attachment: scroll; /* Fix background attachment on mobile */
     }
     
-    iframe {
-        width: 100%;
-        height: 500px;
-    }
-
-    /* Scrolltelling */
-    .scrollytelling {
-        padding: 0 10%; /* Adjust padding for mobile screens */
-    }
-
-    .panel {
-        padding: 15px; /* Reduced padding for mobile */
+    .scrollytelling .panel {
+        font-size: 1rem;
     }
 }
