@@ -1,123 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Wedding Invitation</title>
+    <meta charset='utf-8' />
+    <title>COVID-19 Drop in Subway Usage</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/32.7.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Homemade+Apple&display=swap" rel="stylesheet">
-    <style>
-        /* Add smooth transitions to elements when they become visible */
-        .panel {
-            opacity: 0;
-            transform: translateY(100px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-        .panel.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Basic layout for password protection */
-        #password-protected {
-            text-align: center;
-            margin-top: 20%;
-        }
-        #content {
-            display: none;
-        }
-        /* Ensure the iframe and images scale appropriately */
-        iframe {
-            width: 80%;
-            height: 600px;
-            border: none;
-            border-radius: 8px;
-        }
-    </style>
-    <script>
-        const password = 'abc'; // Change to your desired password
-
-        function checkPassword() {
-            let enteredPassword = prompt('Please enter the password to access the site:');
-            if (enteredPassword === password) {
-                document.getElementById('content').style.display = 'block';
-                document.getElementById('password-protected').style.display = 'none';
-                window.scrollTo(0, 0); // Scroll to the top of the page after access
-            } else {
-                alert('Incorrect password');
-                window.location.reload();  // Reload to prompt again
-            }
-        }
-
-        // Smooth scroll logic for panels
-        document.addEventListener('DOMContentLoaded', function() {
-            const panels = document.querySelectorAll('.panel');
-
-            function onScroll() {
-                panels.forEach(panel => {
-                    if (panel.getBoundingClientRect().top < window.innerHeight) {
-                        panel.classList.add('visible');
-                    }
-                });
-            }
-
-            window.addEventListener('scroll', onScroll);
-            onScroll(); // Run on page load to check if any panel should already be visible
-        });
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
+    <script async src="https://tally.so/widgets/embed.js"></script>
 </head>
-<body onload="checkPassword()">
-    <!-- Password Protection Section -->
-    <div id="password-protected">
-        <h4 class="homemade-font">Wedding Invitation</h2>
-        <p class="cactus-classical-serif-regular"> PLEASE ENTER THE PASSWORD TO ACCESS THE INVITATION</p>
-    </div>
 
-    <!-- Actual Content (Hidden initially) -->
-    <div id="content">
-        <div class="scrollytelling">
-            <div class="panel" id="chapter1">
-                <h2 class="homemade-font">Dear Family and Friends,</h2>            
-            </div>
-            <div class="panel" id="chapter2">
-                <h2 class="homemade-font">Our story wouldn’t be the same without you. Every laugh, every lesson, every moment shared has led us here—and we can’t imagine our wedding day without you.</h2>
-            </div>
-            <div class="panel" id="chapter3">
-                <h2 class="homemade-font">We are so excited to finally say “I do” and celebrate this new chapter with the people who mean the most to us. Your love and support have brought us here, and having you by our side will make this day even more special.</h2>
-            </div>
-            <div class="panel" id="chapter4">
-                <h2 class="homemade-font">So mark your calendars, get ready to celebrate, and let’s make unforgettable memories together!</h2>
-                <br></br>
-                <h3 class="homemade-font">With love, Christina & Matt</h2>
-            </div>
-        </div>
-        <div class="pic">
-            <img src="pic.jpg" alt="pic">
-        </div>
-        <section class="scrollytelling">
-            <div class="panel" id="chapter5">
-                <h4 class="homemade-font">Saturday, September 27, 2025</h2>
-                <p class="cactus-classical-serif-regular">AT TWO O'CLOCK IN THE AFTERNOON</p>
-                <p><strong><a href="https://maps.app.goo.gl/J7v3Cj3Dpjs2PYrv7" target="_blank">St. Kateri Tekakwitha Parish</a></strong></p>
-                <p>1803 Union St, Niskayuna, NY 12309</p>
-                <p>reception to follow</p>
-            </div>
-            <div class="panel" id="chapter6">
-                <h4 class="homemade-font">Saturday, February 7, 2026</h2>
-                <p class="cactus-classical-serif-regular">AT FIVE O'CLOCK IN THE AFTERNOON</h2>
-                <p><strong><a href="https://maps.app.goo.gl/qn7RgKpfRNAQZ9qY9" target="_blank">CHALET V</a></strong></p>
-                <p>104, Taiwan, Taipei City, Zhongshan District, ZhiFu Rd, 8號入口於戶外1樓</p>
-                <p>reception to follow</p>
-            </div>
-            <div class="panel" id="chapter7">
-                <h4 class="homemade-font">Kindly Reply</h2>
-                <p class="cactus-classical-serif-regular">BY SEPTEMBER 1ST</p>
-                <iframe src="https://tally.so/r/3yd0r0"></iframe>
-            </div>
-        </section>
-    </div>
+<body>
 
-    <script src="script.js"></script>
+    <div id="map"></div>
+    <div id='story'></div>
+    <div style="max-width:600px; margin-left:auto; margin-right:auto">
+        <iframe data-tally-src="https://tally.so/r/3yd0r0?transparentBackground=1" width="100%" height="580" frameborder="0" marginheight="0" marginwidth="0" title="Tally Form"></iframe>
+    </div>
+    <script src='config.js'></script>
+    <script src="./map.js"></script>
+
 </body>
+
 </html>
