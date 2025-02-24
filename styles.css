@@ -1,154 +1,340 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: url('intro.png') no-repeat center center fixed;
-  background-size: cover;
-  text-align: center;
-  overflow-x: hidden;
+    font-family: 'Italiana', serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #f9f9f9;
+    color: #495e35;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-#map {
-  top: 0;
-  height: 100vh;
-  width: 100%;
-  position: fixed;
-}
-
-#header {
-  margin: auto;
-  min-height: 100vh;
-  width: 100%;
-  position: relative;
-  z-index: 5;
-  padding: 2vh 0vh 5vh 0vh;
-}
-#features {
-  padding-top: 80vh;
-  padding-bottom: 10vh;
-}
-@media (max-width: 750px) {
-  #features {
-    width: 90vw;
-    margin: 0 auto;
-  }
-}
-#footer {
-  min-height: 2vh;
-  text-align: left;
-  line-height: 25px;
-  width: 100%;
-  position: relative;
-  z-index: 5;
-}
-#header h1 {
+/* Typography */
+h1, h2, h3, h4 {
     font-family: 'Homemade Apple', serif;
     font-weight: 400;
     font-style: normal;
-    text-align: left;
-    margin: auto;
-    max-width: 600px;
 }
 
-#header h4 {
-    font-family: 'Roboto Condensed', sans-serif;
-    font-weight: 300;
-    margin-bottom: 0.5em;
-    margin-left: auto;
-    margin-right: auto;
+h2 {
+    font-size: 2.2rem;
     text-align: left;
-    max-width: 600px;
+    margin: 0;
 }
-#header p.byline {
+
+h3 {
+    font-size: 2.2rem;
+    text-align: right;
+    margin: 0;
+}
+
+h4 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin: 0;
+}
+
+/* Paragraph */
+p {
+    font-size: 1.2rem;
     font-weight: 300;
-    font-size: 0.9em;
-    margin: 0.5em auto 0.8em auto;
+    line-height: 1.6;
+    font-family: "Cactus Classical Serif", serif;
+    text-align: center;
 }
-#header p {
-    font-family: 'Roboto Condensed', sans-serif;
-    font-weight: 400;
+
+/* Intro Section */
+.intro {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background: url('intro.png') no-repeat center center/cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+
+/* Responsive Image for intro.png */
+@media screen and (max-width: 768px) {
+    .intro {
+        background: url('intro.png') no-repeat center center;
+        background-size: contain;
+        height: 100vh;
+        background-attachment: scroll;
+    }
+}
+
+/* Overlay Container */
+.overlay-container {
+    position: relative;
+    width: 100%;
+    max-width: 2000px;
+    padding: 40px 20px;
+    box-sizing: border-box;
     text-align: left;
-    font-size: 1.2em;
-    max-width: 600px;
-    margin: 1em auto 1em auto;
+    overflow: hidden;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-#features h3 {
-    font-family: 'Homemade Apple', serif;
+
+.overlay {
+    color: #495e35;
+    font-size: 0.6rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .overlay {
+        font-size: 1.3rem;
+    }
+    .overlay-container {
+        padding: 30px 15px;
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .overlay {
+        font-size: 1.2rem;
+    }
+    .overlay-container {
+        padding: 20px 10px;
+        max-width: 90%;
+    }
+}
+
+/* Pic Section */
+.pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: #495e35;
+}
+
+.pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+/* Wedding and RSVP Sections */
+#wedding-1, #wedding-2, .rsvp-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    font-family: "Cactus Classical Serif", serif;
     font-weight: 400;
     font-style: normal;
+    margin-bottom: 10px;
+}
+
+#wedding-1 {
+    background: #f9f9f9;
+    font-size: 1rem;
+}
+
+#wedding-2 {
+    background: #E4C7B8;
+    font-size: 1rem;
+}
+
+.rsvp-section {
+    background: #f9f9f9;
+    font-size: 1rem;
+    color: #495e35;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #495e35;
+}
+
+/* Scrolltelling */
+.scrollytelling {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    background: url('intro.png') no-repeat center center/cover;
+    background-attachment: fixed;
+    background-size: cover;
+    height: auto;
+    position: relative;
+    padding: 0 15%;
+}
+
+/* Each section within scrollytelling */
+.panel {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: left;
-    max-width: 50vw;
+    padding: 20px;
+    font-size: 1.5rem;
+    color: #495e35;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
-#features p {
-    font-family: 'Roboto Condensed', sans-serif;
-    text-align: left;
-    font-size: 1.2em;
-    max-width: 50vw;
+
+/* Adding a visible class for animation */
+.panel.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
-#features .imageCredit {
-  font-size: 0.9em;
-  margin-top: -5px;
+
+/* Responsive Adjustments for Panels */
+@media (max-width: 768px) {
+    .panel {
+        font-size: 1.2rem;
+    }
 }
-#footer p {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 0.9em;
-  max-width: 600px;
-  padding: 0.75em 0em;
-  margin: 0px auto;
+
+@media (max-width: 480px) {
+    .panel {
+        font-size: 1rem;
+    }
 }
-a, a:hover, a:visited {
-  color: #e96138;
+
+/* Scroll animations */
+.panel.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
-.hidden {
-  visibility: hidden;
+
+/* Scrolling effect for text */
+.scrollytelling {
+    position: relative;
+    overflow: hidden;
 }
-.centered {
-  width: 50vw;
-  margin: 0 auto;
+
+.scrollytelling .panel {
+    position: relative;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out;
 }
-.lefty {
-  width: 33vw;
-  margin-left: 5vw;
+
+/* JavaScript-triggered effect to make the text scroll in */
+.scrollytelling .panel.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
-.righty {
-  width: 33vw;
-  margin-left: 62vw;
+
+/* Responsive Adjustments */
+
+/* Tablet Screens */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 1rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.8rem;
+    }
+
+    .intro img {
+        width: 100%;
+        height: 80vh;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .pic {
+        height: 80vh;
+    }
+
+    #wedding-1, #wedding-2, .rsvp-section {
+        font-size: 1.2rem;
+    }
+    
+    iframe {
+        width: 100%;
+        object-position: center center;
+
+    }
 }
-.fully {
-  width: 100%;
-  margin: auto;
-}
-.light {
-  color: #ffffff;
-  background-color: #495e35;
-}
-.dark {
-  color: #fafafa;
-  background-color: #444;
-}
-.step {
-  padding-bottom: 50vh;
-  opacity: 0.15;
-}
-.step.active {
-  opacity: 0.99;
-}
-.step div {
-  padding: 25px 50px;
-  line-height: 25px;
-  font-size: 13px;
-}
-.step img {
-  width: 100%;
-}
-@media (max-width: 750px) {
-  .centered, .lefty, .righty, .fully {
-    width: 90vw;
-    margin: 0 auto;
-  }
-}
-/* Fix issue on mobile browser where scroll breaks  */
-.mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan, 
-.mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan .mapboxgl-canvas {
-  touch-action: unset;
+
+/* Mobile Screens */
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    .intro img {
+        width: 100%;
+        height: 80vh;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .pic {
+        height: 80vh;
+    }
+
+    #wedding-1, #wedding-2, .rsvp-section {
+        font-size: 1rem;
+    }
+    
+    iframe {
+        width: 100%;
+        height: 500px;
+        object-position: center center;
+
+    }
 }
