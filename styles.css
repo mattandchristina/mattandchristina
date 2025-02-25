@@ -9,7 +9,6 @@ body {
     font-family: 'Italiana', serif;
     font-weight: 400;
     font-style: normal;
-    background-color: #f9f9f9;
     color: #495e35;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -48,7 +47,18 @@ p {
     line-height: 1.6;
     font-family: "Cactus Classical Serif", serif;
     text-align: center;
-    color: #f9f9f9;
+    color: #495e35;
+
+}
+
+/* Paragraph */
+p1 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    font-family: "Cactus Classical Serif", serif;
+    text-align: left;
+    color: #495e35;
 
 }
 
@@ -185,7 +195,6 @@ footer {
     width: 100%;
     background: url('intro.png') no-repeat center center/cover;
     background-attachment: fixed;
-    background-color: #495e35;
     background-size: cover;
     height: auto;
     position: relative;
