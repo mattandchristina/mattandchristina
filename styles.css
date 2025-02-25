@@ -20,7 +20,7 @@ h1, h2, h3, h4 {
     font-family: 'Homemade Apple', serif;
     font-weight: 400;
     font-style: normal;
-    color: #f9f9f9;
+    color: #495e35;
 }
 
 h2 {
@@ -57,15 +57,13 @@ p {
     position: relative;
     width: 100%;
     height: 100vh; /* Full viewport height */
-    /*background: url('intro.png') no-repeat center center/cover;
-    background-attachment: fixed;*/
+    background: url('intro.png') no-repeat center center/cover;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 5%;
     box-sizing: border-box;
-    background-color: #495e35;
-
 }
 
 /* Responsive Image for intro.png */
@@ -75,7 +73,6 @@ p {
         background-size: contain;
         height: 100vh;
         background-attachment: scroll;
-        background-color: #495e35;
     }
 }
 
@@ -186,13 +183,22 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    /*background: url('intro.png') no-repeat center center/cover;
-    background-attachment: fixed;*/
+    background: url('intro.png') no-repeat center center/cover;
+    background-attachment: fixed;
     background-color: #495e35;
     background-size: cover;
     height: auto;
     position: relative;
     padding: 0 15%;
+}
+
+/* Background for mobile screens */
+@media (max-width: 768px) { 
+    .scrollytelling {
+        background: url('intro-mobile.png') no-repeat center center/cover;
+        background-attachment: scroll; /* Mobile browsers may not support fixed backgrounds well */
+        padding: 0 5%; /* Adjust padding for smaller screens */
+    }
 }
 
 /* Each section within scrollytelling */
