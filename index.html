@@ -3,115 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Wedding Invitation</title>
+    <title>Animated Landing Page</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Homemade+Apple&display=swap" rel="stylesheet">
-    <style>
-        /* Add smooth transitions to elements when they become visible */
-        .panel {
-            opacity: 0;
-            transform: translateY(100px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-        .panel.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Basic layout for password protection */
-        #password-protected {
-            text-align: center;
-            margin-top: 20%;
-        }
-        #content {
-            display: none;
-        }
-        /* Ensure the iframe and images scale appropriately */
-        iframe {
-            width: 80%;
-            height: 600px;
-            border: none;
-            border-radius: 8px;
-        }
-    </style>
-    <script>
-        const password = 'abc'; // Change to your desired password
-
-        function checkPassword() {
-            let enteredPassword = prompt('Please enter the password to access the site:');
-            if (enteredPassword === password) {
-                document.getElementById('content').style.display = 'block';
-                document.getElementById('password-protected').style.display = 'none';
-                window.scrollTo(0, 0); // Scroll to the top of the page after access
-            } else {
-                alert('Incorrect password');
-                window.location.reload();  // Reload to prompt again
-            }
-        }
-
-        // Smooth scroll logic for panels
-        document.addEventListener('DOMContentLoaded', function() {
-            const panels = document.querySelectorAll('.panel');
-
-            function onScroll() {
-                panels.forEach(panel => {
-                    if (panel.getBoundingClientRect().top < window.innerHeight) {
-                        panel.classList.add('visible');
-                    }
-                });
-            }
-
-            window.addEventListener('scroll', onScroll);
-            onScroll(); // Run on page load to check if any panel should already be visible
-        });
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
 </head>
-<body onload="checkPassword()">
-    <!-- Password Protection Section -->
-    <div id="password-protected">
-        <h4 class="homemade-font">Wedding Invitation</h2>
-        <p class="cactus-classical-serif-regular"> PLEASE ENTER THE PASSWORD TO ACCESS THE INVITATION</p>
-    </div>
+<body>
+    <div class="container">
+        <!-- Standard Screens -->
+        <section class="screen">
+            <img src="christina and matt.png" alt="Screen 1">
+            <p class="fade-in">WELCOME TO OUR PAGE</p>
+        </section>
+        
+        <!-- Fullscreen with Overlay -->
+        <section class="fullscreen-screen">
+            <img src="intro.png" alt="Screen 2">
+            <div class="overlay-text">DISCOVER AMAZING FEATURES</div>
+        </section>
+        
+        <section class="screen">
+            <img src="ceremony.png" alt="Screen 3">
+            <p class="fade-in">DESIGNED FOR EVERYONE</p>
+        </section>
+        
+        <section class="screen">
+            <img src="reception.png" alt="Screen 4">
+            <p class="fade-in">SEAMLESS & INTUITIVE</p>
+        </section>
+        
+        <section class="screen">
+            <img src="room-block.png" alt="Screen 5">
+            <p class="fade-in">EXPERIENCE THE FUTURE</p>
+        </section>
+        
+        <!-- Fullscreen with Overlay -->
+        <section class="fullscreen-screen">
+            <img src="pic.jpg" alt="Screen 6">
+            <div class="overlay-text">JOIN US TODAY</div>
+        </section>
 
-    <!-- Actual Content (Hidden initially) -->
-    <div id="content">
-        <div class="scrollytelling">
-            <div class="panel" id="chapter1">
-                <h2 class="homemade-font">Dear Family and Friends,</h2>            
-                <p1 class="cactus-classical-serif-regular">Our story wouldn’t be the same without you. Every laugh, every lesson, every moment shared has led us here—and we can’t imagine our wedding day without you.</p>
-                <p1 class="cactus-classical-serif-regular">We are so excited to finally say “I do” and celebrate this new chapter with the people who mean the most to us. Your love and support have brought us here, and having you by our side will make this day even more special.</p>
-                <p1 class="cactus-classical-serif-regular">So mark your calendars, get ready to celebrate, and let’s make unforgettable memories together!</p>
-                <br></br>
-                <h3 class="homemade-font">With love, Christina & Matt</h2>
-            </div>
-        </div>
-        <div class="pic">
-            <img src="pic.jpg" alt="pic">
-        </div>
-        <section class="scrollytelling">
-            <div class="panel" id="wedding">
-                <h4 class="homemade-font">Saturday, September 27, 2025</h2>
-                <p class="cactus-classical-serif-regular">AT TWO O'CLOCK IN THE AFTERNOON</p>
-                <p><strong><a href="https://maps.app.goo.gl/J7v3Cj3Dpjs2PYrv7" target="_blank">St. Kateri Tekakwitha Parish</a></strong></p>
-                <p>1803 Union St, Niskayuna, NY 12309</p>
-                <br></br>
-                <h4 class="homemade-font">Reception</h2>
-                <p><strong><a href="https://maps.app.goo.gl/JvLw2iy2fP3kySfNA" target="_blank">Mohawk Golf Club</a></strong></p>
-            </div>
-            <div class="panel" id="accommodation">
-                <h4 class="homemade-font">Accommodation</h2>
-                <p class="cactus-classical-serif-regular">The Stockade Inn</p>
-                <p><strong><a href="https://maps.app.goo.gl/ZRNDn15wgcp5EL8F9" target="_blank">The Stockade Inn</a></strong></p>
-            </div>
-            <div class="panel" id="rsvp">
-                <h4 class="homemade-font">Kindly Reply</h2>
-                <p class="cactus-classical-serif-regular">BY SEPTEMBER 1ST</p>
-                <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-                    <iframe src="https://tally.so/r/3yd0r0" style="border: none; width: 80%; height: 80%;"></iframe></div>            
-                </div>
+        <!-- Left-Aligned Rotated Image + Form Section -->
+        <section class="left-image-section">
+            <img src="rsvp.png" alt="Rotated Image">
+            <iframe class="tally-form" src="https://tally.so/r/3yd0r0" allowfullscreen></iframe>
         </section>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

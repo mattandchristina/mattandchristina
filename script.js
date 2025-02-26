@@ -1,21 +1,17 @@
-// Wait for the DOM to fully load
-document.addEventListener('DOMContentLoaded', function () {
-    const panels = document.querySelectorAll('.panel');
+document.addEventListener("DOMContentLoaded", function () {
+    const screens = document.querySelectorAll(".screen");
 
-    // Function to check if a panel is in view
-    function checkPanels() {
-        const scrollPosition = window.scrollY + window.innerHeight;
-        panels.forEach(panel => {
-            if (scrollPosition > panel.offsetTop + panel.offsetHeight / 4) {
-                panel.classList.add('visible');
-            } else {
-                panel.classList.remove('visible');
-            }
-        });
-    }
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        },
+        { threshold: 0.3 }
+    );
 
-    // Listen for scroll events
-    window.addEventListener('scroll', checkPanels);
-    // Run on initial page load in case some panels are already visible
-    checkPanels();
+    screens.forEach((screen) => observer.observe(screen));
 });
