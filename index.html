@@ -7,50 +7,62 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Radio+Canada:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <div class="container">
-        <!-- Standard Screens -->
+
+        <!-- Standard Image + Text Sections -->
         <section class="screen">
-            <img src="christina and matt.png" alt="Screen 1">
-            <p class="fade-in">WELCOME TO OUR PAGE</p>
+            <img src="matt and christina.png" alt="Screen 1">
         </section>
         
-        <!-- Fullscreen with Overlay -->
         <section class="fullscreen-screen">
             <img src="intro.png" alt="Screen 2">
-            <div class="overlay-text">DISCOVER AMAZING FEATURES</div>
+            <div class="overlay-container">
+                <p class="overlay-text apple-left">Dear Family and Friends,</p>
+                <p class="overlay-text radio-left">Our story wouldn’t be the same without you. Every moment shared has led us here—and we can’t imagine our wedding day without you.</p>
+                <p class="overlay-text radio-left">We are so excited to finally say “I do” and celebrate this new chapter with the people who mean the most to us. Having you by our side will make this day even more special.</p>
+                <p class="overlay-text radio-left">Mark your calendars and get ready to celebrate!</p>
+                <p class="overlay-text apple-right">With love, Christina & Matt</p>
+            </div>
         </section>
         
         <section class="screen">
             <img src="ceremony.png" alt="Screen 3">
-            <p class="fade-in">DESIGNED FOR EVERYONE</p>
+            <p class="fade-in">Designed for Everyone</p>
         </section>
-        
+
         <section class="screen">
             <img src="reception.png" alt="Screen 4">
-            <p class="fade-in">SEAMLESS & INTUITIVE</p>
+            <p class="fade-in">Seamless & Intuitive</p>
         </section>
-        
-        <section class="screen">
-            <img src="room-block.png" alt="Screen 5">
-            <p class="fade-in">EXPERIENCE THE FUTURE</p>
-        </section>
-        
-        <!-- Fullscreen with Overlay -->
+
         <section class="fullscreen-screen">
             <img src="pic.jpg" alt="Screen 6">
-            <div class="overlay-text">JOIN US TODAY</div>
         </section>
 
-        <!-- Left-Aligned Rotated Image + Form Section -->
-        <section class="left-image-section">
-            <img src="rsvp.png" alt="Rotated Image">
-            <iframe class="tally-form" src="https://tally.so/r/3yd0r0" allowfullscreen></iframe>
+        <section class="screen">
+            <img src="room-block.png" alt="Screen 7">
         </section>
+
+        <section class="screen">
+            <img src="rsvp.png" alt="Screen 8">
+        </section>
+
+        <!-- Left Aligned Rotated Image + Form Section
+        <section class="left-image-section">
+            <img src="room-block.png" alt="Screen 7">
+            <iframe src="https://tally.so/r/3yd0r0" class="tally-form"></iframe>
+        </section> -->
+
+        <!-- Fullscreen Tally Form -->
+        <section class="fullscreen-tally">
+            <iframe src="https://tally.so/r/3yd0r0" class="tally-full"></iframe>
+        </section>
+
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>

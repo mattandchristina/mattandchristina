@@ -7,17 +7,20 @@ body {
     color: #027d42;
     text-transform: uppercase;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
+/* Container for smooth snapping */
 .container {
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     height: 100vh;
+    scroll-behavior: smooth;
 }
 
 /* Standard Screen Layout */
 .screen {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,51 +40,145 @@ body {
     font-size: 1.5rem;
 }
 
-/* Fullscreen Image Sections */
+/* Ensure the fullscreen section is the relative container */
 .fullscreen-screen {
-    height: 100vh;
-    position: relative;
+    min-height: 100vh;
+    position: relative; /* Ensures absolute children (overlay-text) are positioned relative to this */
     scroll-snap-align: start;
 }
 
+/* Image should fit the screen properly */
 .fullscreen-screen img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.overlay-text {
+/* Ensure the overlay container is centered and properly positioned */
+.overlay-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2rem;
-    background: rgba(255, 255, 255, 0.6);
-    padding: 10px 20px;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px; /* Reduced padding */
+    width: 70%; /* Container takes up 70% of the screen width */
+    max-width: 700px; /* Optional: cap the maximum width for very large screens */
+    margin: 0 15px; /* Margin on both sides */
+    box-sizing: border-box;
+}
+
+/* Ensure fonts are correctly applied and responsive */
+
+/* Left-aligned text */
+.overlay-text.apple-left {
+    font-family: 'Homemade Apple', serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #027d42;
+    text-align: left;
+    align-self: flex-start;
+    font-size: clamp(0.9rem, 2.5vw, 1.5rem); /* Smaller font size range */
+    text-transform: none; /* Ensures no text transformation to uppercase */
+}
+
+/* Radio Canada text */
+.overlay-text.radio-left {
+    font-family: 'Radio Canada', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #027d42;
+    text-align: left;
+    align-self: flex-start;
+    font-size: clamp(0.9rem, 2.5vw, 1.5rem); /* Smaller font size range */
+    text-transform: none; /* Ensures no text transformation to uppercase */
+}
+
+/* Right-aligned text */
+.overlay-text.apple-right {
+    font-family: 'Homemade Apple', serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #027d42;
+    text-align: right;
+    align-self: flex-end;
+    font-size: clamp(0.9rem, 2.5vw, 1.5rem); /* Smaller font size range */
+    text-transform: none; /* Ensures no text transformation to uppercase */
+}
+
+/* Optional tweak for smaller screens */
+@media (max-width: 768px) {
+    .overlay-container {
+        width: 90%; /* Reduce container width on small screens */
+        padding: 10px;
+    }
+
+    .overlay-text.apple-left,
+    .overlay-text.radio-left,
+    .overlay-text.apple-right {
+        font-size: clamp(0.8rem, 3vw, 1.2rem); /* Even smaller font size on small screens */
+    }
 }
 
 /* Left-Aligned Rotated Image + Form Section */
 .left-image-section {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     text-align: center;
-    scroll-snap-align: start;
     padding: 5%;
     gap: 20px;
+    flex-wrap: wrap;
+    scroll-snap-align: start;
 }
 
 .left-image-section img {
     width: 40vw;
     max-width: 500px;
-    transform: rotate(270deg);
+    transform: rotate(90deg);
 }
 
-.tally-form {
-    width: 50vw;
-    max-width: 600px;
-    height: 80vh;
+/* Fullscreen Tally Form Section */
+.fullscreen-tally {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    scroll-snap-align: start;
+}
+
+.tally-full {
+    width: 100%;
+    height: 100vh;
     border: none;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #027d42 #e0e0e0;
+}
+
+/* Custom Scrollbar (For Chrome, Edge, Safari) */
+.tally-form::-webkit-scrollbar,
+.tally-full::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tally-form::-webkit-scrollbar-track,
+.tally-full::-webkit-scrollbar-track {
+    background: #e0e0e0; /* Light gray background */
+    border-radius: 10px;
+}
+
+.tally-form::-webkit-scrollbar-thumb,
+.tally-full::-webkit-scrollbar-thumb {
+    background: #027d42; /* Match theme color */
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+}
+
+.tally-form::-webkit-scrollbar-thumb:hover,
+.tally-full::-webkit-scrollbar-thumb:hover {
+    background: #025e32; /* Darker green on hover */
 }
