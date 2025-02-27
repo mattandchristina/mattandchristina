@@ -1,5 +1,3 @@
-
-/* General Styles */
 body {
     margin: 0;
     padding: 0;
@@ -60,8 +58,25 @@ body {
 
 @media (max-width: 768px) {
     .fullscreen-screen img {
-        object-position: left 30%; /* Adjust percentage to shift image left */
+        object-position: left 80%; /* Adjust percentage to shift image left */
     }
+}
+
+.pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 100vw; /* Prevents overflow */
+    scroll-snap-align: start;
+
+}
+
+.pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
 }
 
 /* Prevent horizontal scrollbars */
