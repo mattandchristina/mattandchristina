@@ -40,19 +40,29 @@ body {
     font-size: 1.5rem;
 }
 
-/* Ensure the fullscreen section is the relative container */
 .fullscreen-screen {
-    min-height: 100vh;
-    position: relative; /* Ensures absolute children (overlay-text) are positioned relative to this */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
     scroll-snap-align: start;
 }
 
-/* Image should fit the screen properly */
 .fullscreen-screen img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
+/* Prevent horizontal scrollbars */
+body, html {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 
 /* Ensure the overlay container is centered and properly positioned */
 .overlay-container {
@@ -142,7 +152,7 @@ body {
 
 /* Fullscreen Tally Form Section */
 .fullscreen-tally {
-    min-height: 100vh;
+    min-height: 120vh; /* Increase height for better visibility */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -152,11 +162,22 @@ body {
 
 .tally-full {
     width: 100%;
-    height: 100vh;
+    height: 120vh; /* Increase height */
     border: none;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #027d42 #e0e0e0;
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+    .fullscreen-tally {
+        min-height: 130vh; /* More height for mobile */
+    }
+
+    .tally-full {
+        height: 130vh; /* More height for mobile */
+    }
 }
 
 /* Custom Scrollbar (For Chrome, Edge, Safari) */
