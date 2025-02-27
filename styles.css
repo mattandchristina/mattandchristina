@@ -58,6 +58,12 @@ body {
     object-fit: cover;
 }
 
+@media (max-width: 768px) {
+    .fullscreen-screen img {
+        object-position: left 30%; /* Adjust percentage to shift image left */
+    }
+}
+
 /* Prevent horizontal scrollbars */
 body, html {
     overflow-x: hidden;
@@ -121,34 +127,18 @@ body, html {
 /* Optional tweak for smaller screens */
 @media (max-width: 768px) {
     .overlay-container {
-        width: 90%; /* Reduce container width on small screens */
+        width: 85%; /* Slightly smaller width for balanced margins */
+        max-width: 600px; /* Prevents it from stretching too much */
         padding: 10px;
+        margin: 0 auto; /* Centers the container */
+        box-sizing: border-box; /* Ensures padding doesn't affect width */
     }
 
     .overlay-text.apple-left,
     .overlay-text.radio-left,
     .overlay-text.apple-right {
-        font-size: clamp(0.8rem, 3vw, 1.2rem); /* Even smaller font size on small screens */
+        font-size: clamp(0.8rem, 3vw, 1.2rem); /* Adjusted font size */
     }
-}
-
-/* Left-Aligned Rotated Image + Form Section */
-.left-image-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-    padding: 5%;
-    gap: 20px;
-    flex-wrap: wrap;
-    scroll-snap-align: start;
-}
-
-.left-image-section img {
-    width: 40vw;
-    max-width: 500px;
-    transform: rotate(90deg);
 }
 
 /* Fullscreen Tally Form Section */
