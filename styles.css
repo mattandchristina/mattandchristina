@@ -60,7 +60,7 @@ body {
 
 @media (max-width: 768px) {
     .fullscreen-screen img {
-        object-position: left 90%; /* Adjust percentage to shift image left */
+        object-position: 20% center; /* Moves the focus area towards the left */
     }
     
     .screen p {
