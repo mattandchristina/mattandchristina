@@ -85,6 +85,13 @@ body {
     object-position: center center;
 }
 
+
+@media (max-width: 768px) {
+    .pic img {
+        object-position: 20% center; /* Moves the focus area towards the left */
+    }    
+}
+
 /* Prevent horizontal scrollbars */
 body, html {
     overflow-x: hidden;
