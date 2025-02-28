@@ -4,7 +4,6 @@ body {
     background-color: #faf8eb;
     font-family: "Radio Canada", sans-serif;
     color: #027d42;
-    text-transform: uppercase;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
@@ -36,7 +35,10 @@ body {
 
 .screen p {
     margin-top: -10px;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    color: #808080;
+    margin-left: 20px;  /* Adjust as needed */
+    margin-right: 20px; /* Adjust as needed */
 }
 
 .fullscreen-screen {
@@ -58,7 +60,11 @@ body {
 
 @media (max-width: 768px) {
     .fullscreen-screen img {
-        object-position: left 80%; /* Adjust percentage to shift image left */
+        object-position: left 90%; /* Adjust percentage to shift image left */
+    }
+    
+    .screen p {
+        font-size: 0.7rem;
     }
 }
 
@@ -120,10 +126,10 @@ body, html {
     font-family: 'Radio Canada', sans-serif;
     font-weight: 400;
     font-style: normal;
-    color: #027d42;
+    color: #808080;
     text-align: left;
     align-self: flex-start;
-    font-size: clamp(0.9rem, 2.5vw, 1.5rem); /* Smaller font size range */
+    font-size: clamp(0.9rem, 2.5vw, 1rem); /* Smaller font size range */
     text-transform: none; /* Ensures no text transformation to uppercase */
 }
 
@@ -231,3 +237,5 @@ body, html {
 .tally-full::-webkit-scrollbar-thumb:hover {
     background: #025e32; /* Darker green on hover */
 }
+
+
