@@ -35,7 +35,7 @@ body {
 
 .screen p {
     margin-top: -10px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #808080;
     margin-left: 20px;  /* Adjust as needed */
     margin-right: 20px; /* Adjust as needed */
@@ -64,7 +64,7 @@ body {
     }
     
     .screen p {
-        font-size: 0.7rem;
+        font-size: 1rem;
     }
 }
 
@@ -88,7 +88,7 @@ body {
 
 @media (max-width: 768px) {
     .pic img {
-        object-position: 20% center; /* Moves the focus area towards the left */
+        object-position: 80% center; /* Moves the focus area towards the left */
     }    
 }
 
