@@ -35,7 +35,7 @@ body {
 
 .screen p {
     margin-top: -10px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #808080;
     margin-left: 20px;  /* Adjust as needed */
     margin-right: 20px; /* Adjust as needed */
@@ -60,7 +60,7 @@ body {
 
 @media (max-width: 768px) {
     .fullscreen-screen img {
-        object-position: 20% center; /* Moves the focus area towards the left */
+        object-position: 50% center; /* Moves the focus area towards the left */
     }
     
     .screen p {
